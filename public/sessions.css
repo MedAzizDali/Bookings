@@ -1,0 +1,19 @@
+.Toastify__close-button {
+    color: white !important;
+    opacity: 0.8 !important;
+}
+
+.Toastify__close-button:hover {
+    opacity: 1 !important;
+}
+
+/* Success toast close button */
+.Toastify__toast.success .Toastify__close-button {
+    color: #e8fff3 !important;
+}
+
+/* Error toast close button */
+.Toastify__toast.error .Toastify__close-button {
+    color: #ffd4d4 !important;
+}
+

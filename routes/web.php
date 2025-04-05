@@ -19,3 +19,5 @@ Route::get('/', function () {
 });
 Route::get('/sessions', [SessionController::class, 'index']);
 Route::post('/sessions/book/{id}', [SessionController::class, 'book']);
+Route::get('/confirm-booking/{id}', [App\Http\Controllers\SessionController::class, 'confirmBooking']);
+

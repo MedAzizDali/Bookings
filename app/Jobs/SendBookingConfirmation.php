@@ -10,6 +10,8 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Log;
 use App\Events\BookingConfirmed;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\BookingConfirmationMail;
 
 class SendBookingConfirmation implements ShouldQueue
 {
@@ -24,9 +26,12 @@ class SendBookingConfirmation implements ShouldQueue
 
     public function handle()
     {
+        Mail::to('azizdali248@gmail.com')->send(new BookingConfirmationMail($this->session));
+
+        // Optional log + event
         // Simulate email sending by logging the session details
         Log::info("Booking confirmation sent for session: " . $this->session->name);
-        event(new BookingConfirmed($this->session));
+        //event(new BookingConfirmed($this->session));
 
 
     }
