@@ -28,11 +28,8 @@ class SendBookingConfirmation implements ShouldQueue
     {
         Mail::to('azizdali248@gmail.com')->send(new BookingConfirmationMail($this->session));
 
-        // Optional log + event
-        // Simulate email sending by logging the session details
         Log::info("Booking confirmation sent for session: " . $this->session->name);
-        //event(new BookingConfirmed($this->session));
-
+       
 
     }
 }

@@ -28,7 +28,7 @@
             @endforeach
         </div>
 
-        <!-- Pagination Links -->
+        
         {{ $sessions->links('pagination::bootstrap-5') }}
 
     </div>
@@ -37,11 +37,11 @@
     <script>
 
         window.Pusher = Pusher;
-        // Define showToast function first
+        
         function showToast(message, type) {
             Toastify({
                 text: message,
-                duration: 5000,
+                duration: -1,
                 gravity: "top",
                 position: "right",
                 style: {
@@ -74,10 +74,10 @@
             forceTLS: true
         });
 
-        // Listen for the event
+        
         window.Echo.channel('sessions').listen('.booking-confirmed', (e) => {
             console.log("Booking Confirmed:", e.session);
-            showToast(`Booking confirmed for: ${e.session.name}`, "success"); // Show toast for real-time updates
+            showToast(`Booking confirmed for: ${e.session.name}`, "success"); 
         });
 
 
